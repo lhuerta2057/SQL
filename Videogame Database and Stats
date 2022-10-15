@@ -1,0 +1,33 @@
+Create a Video Game store.
+
+CREATE TABLE videogames (id INTEGER PRIMARY KEY, name text, price INTEGER, inventory INTEGER, release_year INTEGER, rating INTEGER);
+
+INSERT INTO videogames values (1, "GodofWar", 60, 100, 2018, 9);
+INSERT INTO videogames values (2, "Uncharted", 50, 80, 2016, 7);
+INSERT INTO videogames values (3, "CallofDuty", 50, 90, 2015, 8);
+INSERT INTO videogames values (4, "Spider-man", 55, 60, 2018, 9);
+INSERT INTO videogames values (5, "Battlefield", 40, 100, 2016, 7);
+INSERT INTO videogames values (6, "StardewValley", 30, 30, 2013, 5);
+INSERT INTO videogames values (7, "Minecraft", 20, 45, 2010, 10);
+INSERT INTO videogames values (8, "Left4Dead", 25, 20, 2012,8);
+INSERT INTO videogames values (9, "ApexLegends", 20, 30, 2016, 7);
+INSERT INTO videogames values (10, "Fortnite", 20, 120, 2016, 6); 
+INSERT INTO videogames values (11, "SCP", 35, 85, 2015, 7);
+INSERT INTO videogames values (12, "Valorant", 20, 90, 2020, 8);
+INSERT INTO videogames values (13, "GTA", 60, 55, 2014, 9);
+INSERT INTO videogames values (14, "Outlast", 30, 30, 2015, 8);
+INSERT INTO videogames values (15, "RockBand", 20, 40, 2012,6);
+
+--display database by price.
+SELECT * FROM videogames
+ORDER BY price;
+
+--what is the avg price of videogames with a rating of 9 or higher?
+SELECT AVG(price) 
+FROM videogames WHERE rating >= 9;
+
+--what are the 4 highest rated games?
+SELECT name, price, rating
+FROM videogames WHERE rating >=9
+ORDER BY price
+
