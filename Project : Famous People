@@ -1,0 +1,35 @@
+--Create an Actors Table
+CREATE TABLE Actors (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+name text);
+
+INSERT INTO Actors (name) VALUES ("Bradd Pitt");
+INSERT INTO Actors (name) VALUES ("Angelina Jolie");
+INSERT INTO Actors (name) VALUES ("Will Smith");
+INSERT INTO Actors (name) VALUES ("Jada Smith");
+INSERT INTO Actors (name) VALUES ("Jackie Chan");
+
+CREATE TABLE Relations (id INTEGER PRIMARY KEY AUTOINCREMENT, actor1_id integer, actor2_id integer);
+INSERT INTO Relations (actor1_id,actor2_id) VALUES (1,2);
+INSERT INTO Relations (actor1_id,actor2_id) VALUES (3,4);
+
+CREATE TABLE Movies (id INTEGER PRIMARY KEY AUTOINCREMENT, actor_id integer, movie_name text);
+INSERT INTO Movies (actor_id,movie_name) VALUES (1,"Bullet Train");
+INSERT INTO Movies (actor_id,movie_name) VALUES (2,"Maleficient");
+INSERT INTO Movies (actor_id,movie_name) VALUES (3,"King Richard");
+INSERT INTO Movies (actor_id,movie_name) VALUES (4,"The Matrix");
+INSERT INTO Movies (actor_id,movie_name) VALUES (5,"Rush Hour");
+
+--Display data of actors with the movie they played in
+SELECT Actors.name, Movies.movie_name
+FROM Actors
+LEFT OUTER JOIN Movies
+ON Actors.id=Movies.actor_id;
+
+--Display data of the relationships between actors
+SELECT a.name, b.name
+FROM Relations
+JOIN Actors a
+ON a.id=Relations.actor1_id
+JOIN Actors b
+ON b.id=Relations.actor2_id;
+
